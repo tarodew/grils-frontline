@@ -1,4 +1,4 @@
-name: One-shot controlled portrait migration\n# retry: proxy acquisition path
+name: One-shot controlled portrait migration\n# retry: canonical www + proxy fallback path
 on:
   push:
     paths:
@@ -70,26 +70,35 @@ jobs:
           }
 
           for identity, filename in assets:
-            source_url = "https://iopwiki.com/wiki/Special:Redirect/file/" + urllib.parse.quote(filename, safe="_-.")
-            proxy_url = "https://images.weserv.nl/?url=" + urllib.parse.quote(source_url, safe="") + "&output=png"
-            last_error = None
-            for attempt in range(3):
+            encoded = urllib.parse.quote(filename, safe="_-.")
+            source_url = "https://www.iopwiki.com/wiki/Special:Redirect/file/" + encoded
+            upstream_path = "www.iopwiki.com/wiki/Special:Redirect/file/" + encoded
+            candidates = [
+              ("direct", source_url),
+              ("weserv", "https://images.weserv.nl/?url=" + upstream_path + "&output=png"),
+              ("wsrv", "https://wsrv.nl/?url=" + upstream_path + "&output=png"),
+            ]
+            data = None
+            acquired_via = None
+            errors = []
+            for label, candidate_url in candidates:
               try:
-                req = urllib.request.Request(proxy_url, headers={"User-Agent":"Mozilla/5.0 Oberkommando-Portrait-Migration/1.0","Accept":"image/png,image/*;q=0.9,*/*;q=0.1"})
+                req = urllib.request.Request(candidate_url, headers={"User-Agent":"Mozilla/5.0 Oberkommando-Portrait-Migration/1.0","Accept":"image/png,image/*;q=0.9,*/*;q=0.1","Referer":"https://www.iopwiki.com/"})
                 with urllib.request.urlopen(req, timeout=60) as resp:
-                  data = resp.read()
+                  candidate_data = resp.read()
                   resolved_url = resp.geturl()
                   content_type = resp.headers.get("Content-Type","")
-                if not data.startswith(b"\x89PNG\r\n\x1a\n"):
+                if not candidate_data.startswith(b"\x89PNG\r\n\x1a\n"):
                   raise RuntimeError(f"not PNG ({content_type}) from {resolved_url}")
-                if len(data) < 1024:
-                  raise RuntimeError(f"implausibly small PNG ({len(data)} bytes)")
+                if len(candidate_data) < 1024:
+                  raise RuntimeError(f"implausibly small PNG ({len(candidate_data)} bytes)")
+                data = candidate_data
+                acquired_via = label
                 break
               except Exception as exc:
-                last_error = exc
-                if attempt == 2:
-                  raise RuntimeError(f"{identity}/{filename}: acquisition failed after retries: {exc}") from exc
-                time.sleep(2 * (attempt + 1))
+                errors.append(f"{label}:{exc}")
+            if data is None:
+              raise RuntimeError(f"{identity}/{filename}: acquisition failed: {' | '.join(errors)}")
             width, height = struct.unpack(">II", data[16:24])
             if width <= 0 or height <= 0:
               raise RuntimeError(f"{identity}: invalid PNG dimensions {width}x{height}")
@@ -99,7 +108,7 @@ jobs:
               "identity":identity,
               "filename":filename,
               "source_url":source_url,
-              "acquisition_url":proxy_url,
+              "acquisition_via":acquired_via,
               "sha256":hashlib.sha256(data).hexdigest(),
               "bytes":len(data),
               "width":width,
