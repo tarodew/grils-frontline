@@ -1,0 +1,88 @@
+name: Final controlled portrait migration
+on:
+  push:
+    paths:
+      - ".github/workflows/portrait-migration-final-20260927.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Acquire and verify remaining portrait assets
+        shell: python
+        run: |
+          import hashlib, json, pathlib, struct, urllib.parse, urllib.request
+
+          assets = [
+            ("P38","P38_S.png"),
+            ("PPK","PPK_S.png"),
+            ("P99","P99_S.png"),
+            ("VP70","VP70_S.png"),
+            ("PPQ","PPQ_S.png"),
+            ("G36C","G36C_S.png"),
+            ("G3","G3_S.png"),
+            ("WA2000","WA2000_S.png"),
+            ("MG4","MG4_S.png"),
+            ("DSR-50","DSR-50_S.png"),
+            ("HK433","HK433_S.png"),
+          ]
+
+          out = pathlib.Path("avatars")
+          out.mkdir(exist_ok=True)
+          manifest = {
+            "migration":"portrait-migration-final-20260927",
+            "source_class":"IOP Wiki trusted community game-asset mirror",
+            "acquisition_transport":"direct deterministic MediaWiki static image path",
+            "policy":"controlled copies of remaining non-protected runtime portrait assets; MP40 and Persicaria excluded",
+            "assets":[]
+          }
+
+          for identity, filename in assets:
+            normalized = filename.replace(" ", "_")
+            encoded = urllib.parse.quote(normalized, safe="_-.")
+            digest = hashlib.md5(normalized.encode("utf-8")).hexdigest()
+            source_url = f"https://www.iopwiki.com/images/{digest[0]}/{digest[:2]}/{encoded}"
+            req = urllib.request.Request(source_url, headers={"User-Agent":"Mozilla/5.0 Oberkommando-Portrait-Migration/1.0","Accept":"image/png,image/*;q=0.9,*/*;q=0.1"})
+            with urllib.request.urlopen(req, timeout=60) as resp:
+              data = resp.read()
+              resolved_url = resp.geturl()
+              content_type = resp.headers.get("Content-Type","")
+            if not data.startswith(b"\x89PNG\r\n\x1a\n"):
+              raise RuntimeError(f"{identity}: not PNG ({content_type}) from {resolved_url}")
+            if len(data) < 1024:
+              raise RuntimeError(f"{identity}: implausibly small PNG ({len(data)} bytes)")
+            width, height = struct.unpack(">II", data[16:24])
+            if width <= 0 or height <= 0:
+              raise RuntimeError(f"{identity}: invalid PNG dimensions {width}x{height}")
+            (out / filename).write_bytes(data)
+            manifest["assets"].append({
+              "identity":identity,
+              "filename":filename,
+              "source_url":source_url,
+              "sha256":hashlib.sha256(data).hexdigest(),
+              "bytes":len(data),
+              "width":width,
+              "height":height
+            })
+
+          pathlib.Path("avatars/portrait_migration_final_20260927.json").write_text(
+            json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8"
+          )
+      - name: Commit assets and remove one-shot workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Oberkommando Portrait Migration"
+          git config user.email "actions@users.noreply.github.com"
+          git rm .github/workflows/portrait-migration-final-20260927.yml
+          git add avatars
+          git commit -m "Finish controlled T-Doll portrait migration"
+          git push origin HEAD:main
