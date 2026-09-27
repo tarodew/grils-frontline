@@ -1,4 +1,5 @@
-name: One-shot controlled portrait migration\n# retry: canonical www + proxy fallback path
+name: One-shot controlled portrait migration
+# retry: direct MediaWiki static-path acquisition
 on:
   push:
     paths:
@@ -64,19 +65,21 @@ jobs:
           manifest = {
             "migration":"portrait-migration-20260927",
             "source_class":"IOP Wiki trusted community game-asset mirror",
-            "acquisition_transport":"images.weserv.nl fetch proxy used only to overcome IOP Wiki's automated-client 403; source URL preserved per asset",
+            "acquisition_transport":"IOP Wiki MediaWiki static image path derived deterministically from filename MD5; proxy fallback only if direct static fetch fails",
             "policy":"controlled copies of the live register's accepted runtime portrait candidates; MP40 and Persicaria excluded",
             "assets":[]
           }
 
           for identity, filename in assets:
-            encoded = urllib.parse.quote(filename, safe="_-.")
-            source_url = "https://www.iopwiki.com/wiki/Special:Redirect/file/" + encoded
-            upstream_path = "www.iopwiki.com/wiki/Special:Redirect/file/" + encoded
+            normalized = filename.replace(" ", "_")
+            encoded = urllib.parse.quote(normalized, safe="_-.")
+            digest = hashlib.md5(normalized.encode("utf-8")).hexdigest()
+            source_url = f"https://www.iopwiki.com/images/{digest[0]}/{digest[:2]}/{encoded}"
+            upstream_path = f"www.iopwiki.com/images/{digest[0]}/{digest[:2]}/{encoded}"
             candidates = [
-              ("direct", source_url),
-              ("weserv", "https://images.weserv.nl/?url=" + upstream_path + "&output=png"),
-              ("wsrv", "https://wsrv.nl/?url=" + upstream_path + "&output=png"),
+              ("iop_static", source_url),
+              ("weserv_static", "https://images.weserv.nl/?url=" + upstream_path + "&output=png"),
+              ("wsrv_static", "https://wsrv.nl/?url=" + upstream_path + "&output=png"),
             ]
             data = None
             acquired_via = None
