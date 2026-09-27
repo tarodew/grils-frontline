@@ -1,0 +1,368 @@
+{
+  "migration": "portrait-migration-20260927",
+  "source_class": "IOP Wiki trusted community game-asset mirror",
+  "acquisition_transport": "IOP Wiki MediaWiki static image path derived deterministically from filename MD5; proxy fallback only if direct static fetch fails",
+  "policy": "controlled copies of the live register's accepted runtime portrait candidates; MP40 and Persicaria excluded",
+  "assets": [
+    {
+      "identity": "P08",
+      "filename": "P08_S.png",
+      "source_url": "https://www.iopwiki.com/images/a/a2/P08_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "42b5fe68744633fd5bbfa96d66a5f2488e9c6405bb2d8cfecc365eced9687926",
+      "bytes": 95152,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "C96",
+      "filename": "C96_S.png",
+      "source_url": "https://www.iopwiki.com/images/4/4b/C96_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "c1a167c7b3664714ab74aee812abfdabfdec22fe52ed54c0fabe6a59472e97e4",
+      "bytes": 105966,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "P7",
+      "filename": "P7_S.png",
+      "source_url": "https://www.iopwiki.com/images/3/3e/P7_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "d9084c10cb7e035e1617effc421114200916dbaafcb520505a168e902a10170f",
+      "bytes": 113674,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "Mk23",
+      "filename": "Mk23_S.png",
+      "source_url": "https://www.iopwiki.com/images/2/22/Mk23_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "25d798db4e812cc79822aa6f1ed14fab5e85aa89d63dc1882e11b952871a39f1",
+      "bytes": 120290,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "USP Compact",
+      "filename": "USP_Compact_S.png",
+      "source_url": "https://www.iopwiki.com/images/6/69/USP_Compact_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "a86fb11f3c1396a2940ff5ad54cff8c2f550f08dfb9b0ec265b1c78405daac27",
+      "bytes": 104922,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "HK45",
+      "filename": "HK45_S.png",
+      "source_url": "https://www.iopwiki.com/images/7/7e/HK45_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "c79af5bc216772b4b5342a9dffbd2af8d0d61df52347eadf618b0e8028b60033",
+      "bytes": 101592,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "P22",
+      "filename": "P22_S.png",
+      "source_url": "https://www.iopwiki.com/images/2/25/P22_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "27a7fcc27f83b85c5bc38497643be681de15aa7dadce263b9b02c50a01161a0b",
+      "bytes": 96047,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "P30",
+      "filename": "P30_S.png",
+      "source_url": "https://www.iopwiki.com/images/5/57/P30_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "c5b0f499516c80dcf29f51a32dd0240258cb1519c55b712fd4c2cd048b40b983",
+      "bytes": 121554,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "C-93",
+      "filename": "C-93_S.png",
+      "source_url": "https://www.iopwiki.com/images/6/6f/C-93_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "37d87d45c4eadcbf8af0bfa6e120856bbcae5da7df206c3afe19a0fcc5332a86",
+      "bytes": 108810,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "WKp",
+      "filename": "WKp_S.png",
+      "source_url": "https://www.iopwiki.com/images/5/55/WKp_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "6c64290ebb79f6d5f8dab9195e6be4bdf5049108091feb431bc25579d829dd55",
+      "bytes": 67632,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "VP9",
+      "filename": "VP9_S.png",
+      "source_url": "https://www.iopwiki.com/images/3/32/VP9_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "d81867ac7a4a5b80bf867a4a06ea169f68b4cc36615187c42a4f9c72d9103fa1",
+      "bytes": 95258,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "P2000",
+      "filename": "P2000_S.png",
+      "source_url": "https://www.iopwiki.com/images/e/e2/P2000_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "65a9c09c5219f291e2f737a74304409c3d2528c9d6eaffeeff6e3db0110a83ac",
+      "bytes": 113368,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "MP5",
+      "filename": "MP5_S.png",
+      "source_url": "https://www.iopwiki.com/images/e/e5/MP5_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "a3b50ae4cfa4a3c4646af6dc0c88cd3ff6aa22666e592a658f0fb53d40c15f3b",
+      "bytes": 101861,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "MP7",
+      "filename": "MP7_S.png",
+      "source_url": "https://www.iopwiki.com/images/4/47/MP7_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "e492c60d48a5c60242d92896285aef308a1b2aefac2685badeb8a216a4221bc1",
+      "bytes": 102191,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "MPL",
+      "filename": "MPL_S.png",
+      "source_url": "https://www.iopwiki.com/images/8/89/MPL_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "fbad158afd6cf2689e931b17abf960c5e0cfb136d462e7972917a0b4461e910c",
+      "bytes": 76109,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "MPK",
+      "filename": "MPK_S.png",
+      "source_url": "https://www.iopwiki.com/images/c/c0/MPK_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "61f4714a9773a19a204ebd63f8b2cb490d51f76d21b655e7282a85314ff45779",
+      "bytes": 124019,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "G41",
+      "filename": "G41_S.png",
+      "source_url": "https://www.iopwiki.com/images/a/ab/G41_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "03192159a458060bea0ccd19529b0e2e705b8fbf80f7f3f1a4103fd29961ddcb",
+      "bytes": 117276,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "HK33",
+      "filename": "HK33_S.png",
+      "source_url": "https://www.iopwiki.com/images/0/0d/HK33_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "708724747835af2814e6f1e99588dc692183eba9e8a4de7f0f57b7c58fa1b7b7",
+      "bytes": 114601,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "VRB",
+      "filename": "VRB_S.png",
+      "source_url": "https://www.iopwiki.com/images/1/1f/VRB_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "1e0562227ca621fd68466dc18a5c7189d4f39763bea56d0233e53e39ed9db9f5",
+      "bytes": 95581,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "G43",
+      "filename": "G43_S.png",
+      "source_url": "https://www.iopwiki.com/images/b/b3/G43_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "108b774f9f6a64a497cb8fccfc5183b64cbbd934194d756db823f3b3236911d4",
+      "bytes": 139717,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "PSG-1",
+      "filename": "PSG-1_S.png",
+      "source_url": "https://www.iopwiki.com/images/6/65/PSG-1_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "8cef14aabfa0abaa256df885704ff5457f50fc31697f0c46f07ef847225b04d6",
+      "bytes": 96543,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "G28",
+      "filename": "G28.png",
+      "source_url": "https://www.iopwiki.com/images/d/d3/G28.png",
+      "acquisition_via": "iop_static",
+      "sha256": "f728862c2cbd053b1c3d7e950e74341b894aada2831b8ed7379cd9358c2eb22d",
+      "bytes": 413914,
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "identity": "PzB 39",
+      "filename": "PzB_39_S.png",
+      "source_url": "https://www.iopwiki.com/images/9/9b/PzB_39_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "d82f16847173aac2c7af35ea4d1cdad2d8c416c110f327d7542078f0e373ca10",
+      "bytes": 87900,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "R93",
+      "filename": "R93_S.png",
+      "source_url": "https://www.iopwiki.com/images/f/fd/R93_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "e1b24df90fbbbd274251c531fd83617b7da73b8e0a1b221d6ca19d6c72c9881e",
+      "bytes": 97013,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "SSG 3000",
+      "filename": "SSG_3000_S.png",
+      "source_url": "https://www.iopwiki.com/images/5/52/SSG_3000_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "7d3e26f69c92b64bbd79a3233494802685b686961b849e86eb08b6d08ef5f343",
+      "bytes": 113641,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "SL8",
+      "filename": "SL8_S.png",
+      "source_url": "https://www.iopwiki.com/images/0/08/SL8_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "a890d30408c4592e48b70714136f0db60d33d62c93e2b90146dcd8d623307e04",
+      "bytes": 97032,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "MG42",
+      "filename": "MG42_S.png",
+      "source_url": "https://www.iopwiki.com/images/e/ef/MG42_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "9f73e22d3b9afb59bc8d5c239e86578442152a8c63b970a674cd9f552ab5639f",
+      "bytes": 111424,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "MG34",
+      "filename": "MG34_S.png",
+      "source_url": "https://www.iopwiki.com/images/5/5a/MG34_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "b14901eb537b1bf0d40bbd59c59b36dae65fa6880f30876050a48164158abdbb",
+      "bytes": 101612,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "MG3",
+      "filename": "MG3_S.png",
+      "source_url": "https://www.iopwiki.com/images/8/8c/MG3_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "d2046819be8de0ffa361c09630d0e9c64e785c78654abf5306a655227a9b531f",
+      "bytes": 95945,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "MG5",
+      "filename": "MG5_S.png",
+      "source_url": "https://www.iopwiki.com/images/0/0e/MG5_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "3d4fab69f7ef5688b94d7bfd68fe3712794a43283643d1791b713ff06b96986f",
+      "bytes": 86978,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "FG42",
+      "filename": "FG42_S.png",
+      "source_url": "https://www.iopwiki.com/images/4/44/FG42_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "07fbbbb2871e1dbce74f8e0e9c4f3c4ac2f80f55a6ef5b1edd93892881eb50f0",
+      "bytes": 117052,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "HK23",
+      "filename": "HK23_S.png",
+      "source_url": "https://www.iopwiki.com/images/5/5a/HK23_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "834283417bada0ca5e2c051446748416ab8f9c4e4e8e56242b160283017d1f95",
+      "bytes": 109713,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "HK21",
+      "filename": "HK21_S.png",
+      "source_url": "https://www.iopwiki.com/images/6/6f/HK21_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "873d2b851d715efb0891cbe8a939cfa17d36c3ec221a4b497b8f83e36b83580b",
+      "bytes": 117163,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "MG36",
+      "filename": "MG36_S.png",
+      "source_url": "https://www.iopwiki.com/images/4/41/MG36_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "812bdca1c47f7db52e8c1e90cadbd5d96b0202a993299b92bd0b690cd4aba626",
+      "bytes": 92719,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "MG15",
+      "filename": "MG15_S.png",
+      "source_url": "https://www.iopwiki.com/images/f/fe/MG15_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "a2582e7a319f856cb27fd31c13eaf5287314509985b5498185f56ec659c48454",
+      "bytes": 102015,
+      "width": 256,
+      "height": 333
+    },
+    {
+      "identity": "CAWS",
+      "filename": "CAWS_S.png",
+      "source_url": "https://www.iopwiki.com/images/e/ee/CAWS_S.png",
+      "acquisition_via": "iop_static",
+      "sha256": "825e271bc1643fe3016ca3b63cb81935fad333ea1b7e23ed0f8b10d0ec527b1a",
+      "bytes": 107589,
+      "width": 256,
+      "height": 333
+    }
+  ]
+}
