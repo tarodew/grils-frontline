@@ -1,4 +1,4 @@
-name: One-shot controlled portrait migration
+name: One-shot controlled portrait migration\n# retry: proxy acquisition path
 on:
   push:
     paths:
